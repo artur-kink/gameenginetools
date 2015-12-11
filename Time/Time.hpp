@@ -8,6 +8,7 @@
  */
 class Time{
 public:
+    /** Get current time */
     virtual uint64_t getTime() = 0;
 };
 

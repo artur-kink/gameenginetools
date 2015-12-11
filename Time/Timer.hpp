@@ -3,15 +3,27 @@
 
 #include "Time.hpp"
 
+/**
+ * Basic timer, keeps track of elapsed time since last reset.
+ */
 class Timer{
-private:
+protected:
+    /** Time source for timing. */
     Time& time; 
-    uint64_t startTime;
+
+    /** Reference time to start of timer. */
+    int64_t startTime;
 public:
-    Timer(Time& sourceTime);
+    Timer(Time& timeSource);
     
+    void setTimeSource(Time& timeSource);
     void reset();
-    virtual uint64_t getElapsedTime();
+
+    int64_t timeTillElapsed(int64_t interval);
+    virtual int64_t getElapsedTime();
+
+    bool hasElapsed(int64_t interval);
+    bool resetOnElapsed(int64_t interval);
 };
 
 #endif
