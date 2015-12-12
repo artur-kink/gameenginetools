@@ -17,13 +17,13 @@ public:
     Timer(Time& timeSource);
     
     void setTimeSource(Time& timeSource);
-    void reset();
+    virtual void reset();
 
-    int64_t timeTillElapsed(int64_t interval);
+    virtual int64_t timeTillElapsed(int64_t interval);
     virtual int64_t getElapsedTime();
 
-    bool hasElapsed(int64_t interval);
-    bool resetOnElapsed(int64_t interval);
+    virtual bool hasElapsed(int64_t interval);
+    virtual bool resetOnElapsed(int64_t interval);
 };
 
 #endif
