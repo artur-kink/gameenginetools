@@ -15,3 +15,8 @@ time: $(TIMEOBJECTS)
 
 $(TIMEOBJECTS): %.o: %.cpp
 	$(CC) -c -g -Wall -std=c++11 -o $@ $<
+
+
+clean:
+	rm $(TIMEOBJECTS)
+	rm time

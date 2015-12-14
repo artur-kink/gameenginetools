@@ -13,6 +13,13 @@ protected:
 
     /** Reference time to start of timer. */
     int64_t startTime;
+
+    /** Is timer paused. */
+    bool paused;
+
+    /** Time when timer was paused. */
+    int64_t pauseTime;
+
 public:
     Timer(Time& timeSource);
     
@@ -24,6 +31,11 @@ public:
 
     virtual bool hasElapsed(int64_t interval);
     virtual bool resetOnElapsed(int64_t interval);
+
+    bool isPaused();
+    virtual void pause();
+    virtual void resume();
+    
 };
 
 #endif

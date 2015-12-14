@@ -25,6 +25,9 @@ void CarryTimer::subtractCarry(int64_t carry){
 }
 
 int64_t CarryTimer::getElapsedTime(){
+    if(paused){
+        return pauseTime - startTime + carryTime;
+    }
     return time.getTime() - startTime + carryTime; 
 }
 
